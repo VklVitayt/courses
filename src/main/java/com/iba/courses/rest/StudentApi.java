@@ -18,21 +18,9 @@ public class StudentApi {
         System.out.println("REST");
         return studentService.getAllStudents();
     }
-
-    @GetMapping("/greeting/{myVariable}")
-    private String greeting(@PathVariable String myVariable) {
-    System.out.println("on our first rest");
-    return "HELLO " + myVariable;
-    }
-    @PostMapping("/simplePost")
-    private void postMethod(@RequestBody String s){
-        System.out.println(s);
-    }
-
-    @PostMapping("simplePost/{id}")
-    private int postMethod(@RequestBody String s,@PathVariable int id){
-        System.out.println(s);
-        return id;
+    @PostMapping("addStudent")
+    private void addStudents(@RequestBody Student student){
+        studentService.addStudents(student);
     }
 }
 

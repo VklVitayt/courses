@@ -16,4 +16,7 @@ public class StudentService {
         System.out.println("Service");
         return studentRepository.getAllStudents();
     }
+    public void addStudents(Student student) { ;
+        studentRepository.save(student);
+    }
 }
