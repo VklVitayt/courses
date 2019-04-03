@@ -1,47 +1,43 @@
 package com.iba.courses.domain;
 
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
-@Table(name="Student")
+@Table(name = "Student")
 public class Student {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
     @Column(name = "name")
-    @NotNull
+    @NonNull
     private String name;
 
     @Column(name = "login")
-    @NotNull
+    @NonNull
     private String login;
 
+
     @Column(name = "password")
-    @NotNull
+    @NonNull
     private String password;
 
+
     @Column(name = "university")
-    @NotNull
+    @NonNull
     private String university;
 
     @Column(name = "course")
-    @NotNull
+    @NonNull
     private Integer course;
-
-    public Student() {
-    }
-
-    public Student(@NotNull String name, @NotNull String login, @NotNull String password, @NotNull String university, @NotNull Integer course) {
-        this.name = name;
-        this.login = login;
-        this.password = password;
-        this.university = university;
-        this.course = course;
-    }
 
     public Integer getId() {
         return id;
@@ -89,17 +85,5 @@ public class Student {
 
     public void setCourse(Integer course) {
         this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", university='" + university + '\'' +
-                ", course='" + course + '\'' +
-                '}';
     }
 }
